@@ -131,29 +131,35 @@ def download_hs(dirname):
     cmd = ('git clone https://github.com/tsdaemon/card2code %s' % dirname)
     os.system(cmd)
 
-def main():
-	    base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-	    # data
+
+if __name__ == '__main__':
+	import sys
+	args = sys.argv
+
+	base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+	# data
+	if args[1] == 'dirs':
 	    data_dir = os.path.join(base_dir, 'data')
 	    if not os.path.exists(data_dir):
 	        os.makedirs(data_dir)
 	    wordvec_dir = os.path.join(data_dir, 'glove')
-
 	    # libraries
 	    lib_dir = os.path.join(base_dir, 'lib')
 
-	    # download dependencies
+	# download dependencies
+	if args[1] == 'tagger':
 	    download_tagger(lib_dir)
+	if args[1] == 'parser':
 	    download_parser(lib_dir)
+	if args[1] == 'easyccg':
 	    download_easyccg(lib_dir)
+	if args[1] == 'wordvec':
 	    download_wordvecs(wordvec_dir)
 
-	    # download data
-	    download_hs(data_dir + '/card2code')
-	    download_bs(data_dir + '/code-docstring-corpus')
-	    download_django(data_dir)
-
-
-if __name__ == '__main__':
-	main()
+    # download data
+	if args[1] == 'data':
+		download_hs(data_dir + '/card2code')
+		download_bs(data_dir + '/code-docstring-corpus')
+		download_django(data_dir)
