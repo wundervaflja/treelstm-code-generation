@@ -139,16 +139,16 @@ if __name__ == '__main__':
 
 	base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 	lib_dir = os.path.join(base_dir, 'lib')
+	data_dir = os.path.join(base_dir, 'data')
+	wordvec_dir = os.path.join(data_dir, 'glove')
 	# data
 	if args[1] == 'dirs':
 	    print('here')
-	    data_dir = os.path.join(base_dir, 'data')
+
 	    if not os.path.exists(data_dir):
 	        os.makedirs(data_dir)
-	    wordvec_dir = os.path.join(data_dir, 'glove')
+
 	    # libraries
-
-
 	# download dependencies
 	if args[1] == 'tagger':
 	    download_tagger(lib_dir)
