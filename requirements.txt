@@ -1,7 +1,7 @@
 astor
 certifi
 chardet
-decorato
+decorator
 idna
 networkx
 nltk
