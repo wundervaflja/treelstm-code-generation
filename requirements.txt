@@ -1,14 +1,13 @@
 astor
 certifi
 chardet
-decorator
+decorato
 idna
 networkx
 nltk
 numpy
 pandas
 Pillow
-pkg-resources
 python-dateutil
 pytz
 PyYAML
