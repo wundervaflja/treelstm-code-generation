@@ -58,7 +58,8 @@ def split_input(filepath):
                 dfile.write(description)
 
 
-if __name__ == '__main__':
+
+def main():
     logging.getLogger().setLevel(logging.DEBUG)
 
     logging.info('=' * 80)
@@ -163,3 +164,7 @@ if __name__ == '__main__':
     logging.info('Creating grammar')
     grammar = write_grammar(parse_trees, os.path.join(hs_dir, 'grammar.txt.uc'))
 
+
+
+if __name__ == '__main__':
+	main()

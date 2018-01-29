@@ -25,8 +25,7 @@ def split_file(dataset_file, train_dir, dev_dir, test_dir, ext):
         test_file = os.path.join(test_dir, 'test.' + ext)
         copy_n_lines(in_f, test_file, n_lines=1805)
 
-
-if __name__ == '__main__':
+def main():
     logging.getLogger().setLevel(logging.DEBUG)
 
     logging.info('=' * 80)
@@ -125,3 +124,7 @@ if __name__ == '__main__':
 
     logging.info('Creating grammar')
     grammar = write_grammar(parse_trees, os.path.join(dj_dir, 'grammar.txt.uc'))
+
+
+if __name__ == '__main__':
+	main()
