@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
-python scripts/download.py
-
 sudo sh build_java.sh
+
+# python scripts/download.py
+
+
 
 export PYTHONPATH="$PYTHONPATH:."
 # python scripts/preprocess_hs.py

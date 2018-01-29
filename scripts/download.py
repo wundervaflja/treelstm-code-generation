@@ -131,26 +131,29 @@ def download_hs(dirname):
     cmd = ('git clone https://github.com/tsdaemon/card2code %s' % dirname)
     os.system(cmd)
 
+def main():
+	    base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+	    # data
+	    data_dir = os.path.join(base_dir, 'data')
+	    if not os.path.exists(data_dir):
+	        os.makedirs(data_dir)
+	    wordvec_dir = os.path.join(data_dir, 'glove')
+
+	    # libraries
+	    lib_dir = os.path.join(base_dir, 'lib')
+
+	    # download dependencies
+	    download_tagger(lib_dir)
+	    download_parser(lib_dir)
+	    download_easyccg(lib_dir)
+	    download_wordvecs(wordvec_dir)
+
+	    # download data
+	    download_hs(data_dir + '/card2code')
+	    download_bs(data_dir + '/code-docstring-corpus')
+	    download_django(data_dir)
+
 
 if __name__ == '__main__':
-    base_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-
-    # data
-    data_dir = os.path.join(base_dir, 'data')
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-    wordvec_dir = os.path.join(data_dir, 'glove')
-
-    # libraries
-    lib_dir = os.path.join(base_dir, 'lib')
-
-    # download dependencies
-    download_tagger(lib_dir)
-    download_parser(lib_dir)
-    download_easyccg(lib_dir)
-    download_wordvecs(wordvec_dir)
-
-    # download data
-    download_hs(data_dir + '/card2code')
-    download_bs(data_dir + '/code-docstring-corpus')
-    download_django(data_dir)
+	main()
