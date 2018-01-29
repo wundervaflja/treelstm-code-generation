@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-sudo sh build_java.sh
+sh build_java.sh
 
 # python scripts/download.py
 
